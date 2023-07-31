@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Authenticator;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::get('/api/auth  ', [Authenticator::class, 'index']);
+Route::get('/api/auth/code', [Authenticator::class, 'getAuthCode']);
+Route::get('/api/flight/offers', [Authenticator::class, 'flightOffers']);
